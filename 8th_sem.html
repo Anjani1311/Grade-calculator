@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>8th sem</title>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="author" content="Yinka Enoch Adedokun">
+ 	    <link rel="stylesheet" type="text/css" href="bootstrap_v4.5.2.min.css">
+	    <script type="text/javascript" src="jqueryv3.5.1.min.js"></script>
+	    <script type="text/javascript" src="bootstrap_v4.5.2.min.js"></script>
+	    <script type="text/javascript" src="popper.min.js"></script>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	    <link rel="stylesheet" type="text/css" href="1st_sem.css">
+	    <style type="text/css">
+	    	#login form input[type="text"], input[type="password"] {
+				    margin-bottom: -1em;
+				    margin-top: 15px;
+				    padding: 0 16px;
+				    width: 257px;
+				    outline: none;
+				}
+			input {
+			    border: none;
+			    border-bottom:1px solid #2b090d;
+			    margin-bottom: 5px;
+			    outline: none;
+			}
+			.logo{
+				margin-top: 60px;
+				font-size: 49px;
+               line-height: 47px;
+               height: 193px;
+
+			}
+			.mr-4, .mx-4 {
+		    margin-right: -0.5rem!important;
+		}
+		   #login form input[type="text"]:hover {
+    border: 1px #0b488a solid;
+    height: 28px;
+		}#login form input {
+		    height: 29px;
+		}
+		h6{
+			font-size: 26px;
+		}
+	
+	
+	    </style>
+	</head>
+	<body>
+	    <div class="main">
+	        <div class="container" style="background-color: solid red;">
+		        <center>
+			        <div class="middle" >
+			        	<div class="logo" >student grade calcy<br>
+			        		<h6>8th sem</h6>
+				          <div class="clearfix"></div>
+				        </div> 
+			        	<div id="login">
+					        <form action="javascript:void(0);" method="get">
+					        <fieldset class="clearfix">
+					        <input type="text" name="" placeholder="Signal And Network" id="SAN">
+					        <input type="text" name="" placeholder="Network Security" id="NS">
+                            <input type="text" name="" placeholder="Natural Language Processing" id="NLP">
+						    <input type="text" name="" placeholder="Web And Internet Technology" id="WIT">
+						    <input type="text" name="" placeholder="IOT" id="IOT">
+						    <input type="text" name="" placeholder="Big Data Analytics" id="BDA">
+						    <input type="text" name="" placeholder="Cyber law and Ethics" id="CLE">
+						    <input type="text" name="" placeholder="Mobile Computing" id="MC">
+						    <input type="text" name="" placeholder="Robotics" id="Robotics">
+						    <input type="text" name="" placeholder="Soft skill & IC" id="IC">
+						   
+					           <div class="mt-4 mr-4" style=" text-align:right;"> <br>
+					           	 <span style="width:50%; text-align:right;  display: inline-block;">
+					           	 	<input type="submit" class="btn btn-outline-danger" onclick="calcy()" value="Grade Calcy">
+					           	 </span>
+					           </div>
+					        </fieldset>
+					        <div class="clearfix">
+					        </div>
+					        </form>
+					            <div class="clearfix"></div>
+					        <div class="app-form-group showdata">
+			        	         <p id="showdata"></p>
+			                </div>
+					    </div> 
+			        </div>
+		        </center>
+	        </div>
+	    </div>
+	   <script>
+	   	const calcy=()=>{
+	   		let SAN=document.getElementById('SAN').value;
+	   		let NS=document.getElementById('NS').value;
+	   		let NLP=document.getElementById('NLP').value;
+	   		let WIT=document.getElementById('WIT').value;
+	   		let IOT=document.getElementById('IOT').value;
+	   		let BDA=document.getElementById('BDA').value;
+	   		let CLE=document.getElementById('CLE').value;
+	   		let MC=document.getElementById('MC').value;
+	   		let Robotics=document.getElementById('Robotics').value;
+	   		let IC=document.getElementById('IC').value;
+	   		let grades="";
+
+	   		let totalgrade=parseFloat(SAN)+parseFloat(NS)+parseFloat(NLP)+parseFloat(WIT)+parseFloat(IOT)+
+	   		               parseFloat(BDA)+parseFloat(CLE)+parseFloat(MC)+parseFloat(Robotics)+parseFloat(IC);
+		   		let pers=((totalgrade/1000)*100).toFixed(2);
+
+		   		
+	            if(pers<=100 && pers>=80)
+	            {
+	            	grades='A';
+	            }else if(pers<=79 && pers>=60)
+	            {
+	            	grades='B';
+	            }else if(pers<=59 && pers>=40)
+	            {
+	            	grades='C';
+	            }else 
+	            {
+	            	grades='F';
+	            }
+	            if(pers>=40)
+	            {
+	            	if(SAN<=25 || NS<=25 || NLP<=25 || WIT<=25 || IOT<=25 || BDA<=25|| CLE<=25|| MC<=25 ||Robotics<=25 || IC<=25)
+		            {
+		            	document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are fail."+"Because your score is less than 25 in any one or more subjects."
+		            }
+				   
+                    else{
+	                document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are pass."
+	                }
+	             }
+	             else{
+			        
+		            	document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"You are fail overall."
+		            
+	             }
+	   	}
+	   </script>
+	</body>
+</html>
+
+                        

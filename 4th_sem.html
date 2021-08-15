@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>4th sem</title>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="author" content="Yinka Enoch Adedokun">
+ 	    <link rel="stylesheet" type="text/css" href="bootstrap_v4.5.2.min.css">
+	    <script type="text/javascript" src="jqueryv3.5.1.min.js"></script>
+	    <script type="text/javascript" src="bootstrap_v4.5.2.min.js"></script>
+	    <script type="text/javascript" src="popper.min.js"></script>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	    <link rel="stylesheet" type="text/css" href="1st_sem.css">
+	    <style type="text/css">
+	    	#login form input[type="text"], input[type="password"] {
+				    margin-bottom: -1em;
+				    margin-top: 15px;
+				    padding: 0 16px;
+				    width: 257px;
+				    outline: none;
+				}
+			input {
+			    border: none;
+			    border-bottom: 1px solid #4c0d14;
+			    margin-bottom: 7px;
+			    outline: none;
+			}
+			.logo{
+				margin-top: 80px;
+			}
+			.mr-4, .mx-4 {
+		    margin-right: -0.5rem!important;
+		}
+	    </style>
+	</head>
+	<body>
+	    <div class="main">
+	        <div class="container" style="background-color: solid red;">
+		        <center>
+			        <div class="middle" >
+			        	<div class="logo" >student grade calcy<br>
+			        		<h6>4th sem</h6>
+				          <div class="clearfix"></div>
+				        </div> 
+			        	<div id="login">
+					        <form action="javascript:void(0);" method="get">
+					        <fieldset class="clearfix">
+					        <input type="text" name="" placeholder="Automata PCC-CS-403" id="Automata">
+						    <input type="text" name="" placeholder="Discrete Mathematics PCC-CS-401" id="maths">
+						    <input type="text" name="" placeholder="Computer Architecture PCC-CS-402" id="Architecture">
+						    <input type="text" name="" placeholder="Algorithms PCC-CS-404" id="Algorithms">
+						    <input type="text" name="" placeholder="Environment science MCA-401" id="Environment">
+						    <input type="text" name="" placeholder="Biology BSC-401" id="Biology">
+					           <div class="mt-4 mr-4" style=" text-align:right;"> <br>
+					           	 <span style="width:50%; text-align:right;  display: inline-block;">
+					           	 	<input type="submit" class="btn btn-outline-danger" onclick="calcy()" value="Grade Calcy">
+					           	 </span>
+					           </div>
+					        </fieldset>
+					        <div class="clearfix">
+					        </div>
+					        </form>
+					            <div class="clearfix"></div>
+					        <div class="app-form-group showdata">
+			        	         <p id="showdata"></p>
+			                </div>
+					    </div> 
+			        </div>
+		        </center>
+	        </div>
+	    </div>
+	   <script>
+	   	const calcy=()=>{
+	   		let Automata=document.getElementById('Automata').value;
+	   		let maths=document.getElementById('maths').value;
+	   		let Architecture=document.getElementById('Architecture').value;
+	   		let Algorithms=document.getElementById('Algorithms').value;
+	   		let Environment=document.getElementById('Environment').value;
+	   		let Biology=document.getElementById('Biology').value;
+	   		let grades="";
+
+	   		let totalgrade=parseFloat(Automata)+parseFloat(maths)+parseFloat(Architecture)+parseFloat(Algorithms)+
+	   		               parseFloat(Environment)+parseFloat(Biology);
+	   		let pers=((totalgrade/600)*100).toFixed(2);
+	   		alert(pers);
+	   		
+            if(pers<=100 && pers>=80)
+            {
+            	grades='A';
+            }else if(pers<=79 && pers>=60)
+            {
+            	grades='B';
+            }else if(pers<=59 && pers>=40)
+            {
+            	grades='C';
+            }else 
+            {
+            	grades='F';
+            }
+            if(pers>=40)
+            {
+            	if( Automata<=25 || maths<=25|| Architecture<=25|| Algorithms<=25|| Environment<=25|| Biology<=25)
+		            {
+		            	document.getElementById('showdata').innerHTML="out of 600 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are fail."+"Because your score is less than 25 in any one or more subjects."
+		            }
+				   
+                    else{
+	                 document.getElementById('showdata').innerHTML="out of 600 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are pass."
+	                }
+               
+             }
+             else{
+             	document.getElementById('showdata').innerHTML="out of 600 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are fail."
+             }
+	   	}
+	   </script>
+	</body>
+</html>

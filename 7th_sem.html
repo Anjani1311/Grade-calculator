@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>7th sem</title>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="author" content="Yinka Enoch Adedokun">
+ 	    <link rel="stylesheet" type="text/css" href="bootstrap_v4.5.2.min.css">
+	    <script type="text/javascript" src="jqueryv3.5.1.min.js"></script>
+	    <script type="text/javascript" src="bootstrap_v4.5.2.min.js"></script>
+	    <script type="text/javascript" src="popper.min.js"></script>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	    <link rel="stylesheet" type="text/css" href="1st_sem.css">
+	    <style type="text/css">
+	    	#login form input[type="text"], input[type="password"] {
+				    margin-bottom: -1em;
+				    margin-top: 15px;
+				    padding: 0 16px;
+				    width: 257px;
+				    outline: none;
+				}
+			input {
+			    border: none;
+			    border-bottom:1px solid #2b090d;
+			    margin-bottom: 5px;
+			    outline: none;
+			}
+			.logo{
+				margin-top: 60px;
+				font-size: 49px;
+               line-height: 47px;
+               height: 193px;
+
+			}
+			.mr-4, .mx-4 {
+		    margin-right: -0.5rem!important;
+		}
+		   #login form input[type="text"]:hover {
+    border: 1px #0b488a solid;
+    height: 28px;
+		}#login form input {
+		    height: 29px;
+		}
+		h6{
+			font-size: 26px;
+		}
+	
+	
+	    </style>
+	</head>
+	<body>
+	    <div class="main">
+	        <div class="container" style="background-color: solid red;">
+		        <center>
+			        <div class="middle" >
+			        	<div class="logo" >student grade calcy<br>
+			        		<h6>7th sem</h6>
+				          <div class="clearfix"></div>
+				        </div> 
+			        	<div id="login">
+					        <form action="javascript:void(0);" method="get">
+					        <fieldset class="clearfix">
+					        <input type="text" name="" placeholder="Quantum Computing" id="QC">
+					        <input type="text" name="" placeholder="Cloud Computing" id="CC">
+                            <input type="text" name="" placeholder="Digital signal Proccesing" id="DSP">
+						    <input type="text" name="" placeholder="Multi-agent Inteligent System " id="MIS">
+						    <input type="text" name="" placeholder="Machine Learining" id="ML">
+						    <input type="text" name="" placeholder="Deep Learning" id="DL">
+						    <input type="text" name="" placeholder="Soft Computing" id="SC">
+						    <input type="text" name="" placeholder="Adhoc-sensor Network" id="ASN">
+						    <input type="text" name="" placeholder="Information Theroy and Coding" id="ITC">
+						    <input type="text" name="" placeholder="Cyber Security" id="CS">
+						   
+					           <div class="mt-4 mr-4" style=" text-align:right;"> <br>
+					           	 <span style="width:50%; text-align:right;  display: inline-block;">
+					           	 	<input type="submit" class="btn btn-outline-danger" onclick="calcy()" value="Grade Calcy">
+					           	 </span>
+					           </div>
+					        </fieldset>
+					        <div class="clearfix">
+					        </div>
+					        </form>
+					            <div class="clearfix"></div>
+					        <div class="app-form-group showdata">
+			        	         <p id="showdata"></p>
+			                </div>
+					    </div> 
+			        </div>
+		        </center>
+	        </div>
+	    </div>
+	   <script>
+	   	const calcy=()=>{
+	   		let QC=document.getElementById('QC').value;
+	   		let CC=document.getElementById('CC').value;
+	   		let DSP=document.getElementById('DSP').value;
+	   		let MIS=document.getElementById('MIS').value;
+	   		let ML=document.getElementById('ML').value;
+	   		let DL=document.getElementById('DL').value;
+	   		let SC=document.getElementById('SC').value;
+	   		let ASN=document.getElementById('ASN').value;
+	   		let ITC=document.getElementById('ITC').value;
+	   		let CS=document.getElementById('CS').value;
+	   		let grades="";
+
+	   		let totalgrade=parseFloat(QC)+parseFloat(CC)+parseFloat(DSP)+parseFloat(MIS)+parseFloat(ML)+
+	   		               parseFloat(DL)+parseFloat(SC)+parseFloat(ASN)+parseFloat(ITC)+parseFloat(CS);
+	   		let pers=((totalgrade/1000)*100).toFixed(2);
+	   		
+            if(pers<=100 && pers>=80)
+            {
+            	grades='A';
+            }else if(pers<=79 && pers>=60)
+            {
+            	grades='B';
+            }else if(pers<=59 && pers>=40)
+            {
+            	grades='C';
+            }else 
+            {
+            	grades='F';
+            }
+            if(pers>=40)
+            {
+            	if(QC<=25 || CC<=25 || DSP<=25 || MIS<=25 || ML<=25 || DL<=25|| SC<=25|| ASN<=25 ||ITC<=25 || CS<=25)
+		            {
+		            	document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are fail."+"Because your score is less than 25 in any one or more subjects."
+		            }
+				   
+                    else{
+	                document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are pass."
+	                }
+                
+             }
+             else{
+             	document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are overall fail."
+             }
+	   	}
+	   </script>
+	</body>
+</html>
+
+                        

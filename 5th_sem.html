@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>5th sem</title>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="author" content="Yinka Enoch Adedokun">
+ 	    <link rel="stylesheet" type="text/css" href="bootstrap_v4.5.2.min.css">
+	    <script type="text/javascript" src="jqueryv3.5.1.min.js"></script>
+	    <script type="text/javascript" src="bootstrap_v4.5.2.min.js"></script>
+	    <script type="text/javascript" src="popper.min.js"></script>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	    <link rel="stylesheet" type="text/css" href="1st_sem.css">
+	    <style type="text/css">
+	    	#login form input[type="text"], input[type="password"] {
+				    margin-bottom: -1em;
+				    margin-top: 15px;
+				    padding: 0 16px;
+				    width: 257px;
+				    outline: none;
+				}
+			input {
+			    border: none;
+			    border-bottom:1px solid #27080b;
+			    margin-bottom: 5px;
+			    outline: none;
+			}
+			.logo{
+				margin-top: 70px;
+               font-size: 49px;
+               line-height: 47px;
+               height: 193px;
+
+			}
+			.mr-4, .mx-4 {
+		    margin-right: -0.5rem!important;
+		}
+		   #login form input[type="text"]:hover {
+    border: 1px #0b488a solid;
+    height: 28px;
+		}#login form input {
+		    height: 29px;
+		}
+		h6{
+			font-size: 26px;
+		}
+	
+	    </style>
+	</head>
+	<body>
+	    <div class="main">
+	        <div class="container" style="background-color: solid red;">
+		        <center>
+			        <div class="middle" >
+			        	<div class="logo" >student grade calcy<br>
+			        		<h6>5th sem</h6>
+				          <div class="clearfix"></div>
+				        </div> 
+			        	<div id="login">
+					        <form action="javascript:void(0);" method="get">
+					        <fieldset class="clearfix">
+					        <input type="text" name="" placeholder="Operating system" id="OS">
+					        <input type="text" name="" placeholder="Compiler Design" id="Compiler">
+                            <input type="text" name="" placeholder="Computer Organisation" id="Organisation">
+						    <input type="text" name="" placeholder="Humanities" id="Humanities">
+						    <input type="text" name="" placeholder="Theory Of Computation" id="TOC">
+						    <input type="text" name="" placeholder="Artifficial Intelligence" id="AI">
+						    <input type="text" name="" placeholder="Advanced Computer Architechture" id="Architechture">
+						    <input type="text" name="" placeholder="Computer Graphics" id="Graphics">
+						    <input type="text" name="" placeholder="Constitutional of india" id="COI">
+						    <input type="text" name="" placeholder="Software Engineering" id="Software">
+						   
+					           <div class="mt-4 mr-4" style=" text-align:right;"> <br>
+					           	 <span style="width:50%; text-align:right;  display: inline-block;">
+					           	 	<input type="submit" class="btn btn-outline-danger" onclick="calcy()" value="Grade Calcy">
+					           	 </span>
+					           </div>
+					        </fieldset>
+					        <div class="clearfix">
+					        </div>
+					        </form>
+					            <div class="clearfix"></div>
+					        <div class="app-form-group showdata">
+			        	         <p id="showdata"></p>
+			                </div>
+					    </div> 
+			        </div>
+		        </center>
+	        </div>
+	    </div>
+	   <script>
+	   	const calcy=()=>{
+	   		let OS=document.getElementById('OS').value;
+	   		let Compiler=document.getElementById('Compiler').value;
+	   		let Organisation=document.getElementById('Organisation').value;
+	   		let Humanities=document.getElementById('Humanities').value;
+	   		let TOC=document.getElementById('TOC').value;
+	   		let AI=document.getElementById('AI').value;
+	   		let Architechture=document.getElementById('Architechture').value;
+	   		let Graphics=document.getElementById('Graphics').value;
+	   		let COI=document.getElementById('COI').value;
+	   		let Software=document.getElementById('Software').value;
+	   		let grades="";
+
+	   		let totalgrade=parseFloat(OS)+parseFloat(Compiler)+parseFloat(Organisation)+parseFloat(Humanities)+parseFloat(TOC)+
+	   		               parseFloat(AI)+parseFloat(Architechture)+parseFloat(Graphics)+parseFloat(COI)+parseFloat(Software);
+	   		let pers=((totalgrade/1000)*100).toFixed(2);
+	   		
+            if(pers<=100 && pers>=80)
+            {
+            	grades='A';
+            }else if(pers<=79 && pers>=60)
+            {
+            	grades='B';
+            }else if(pers<=59 && pers>=40)
+            {
+            	grades='C';
+            }else 
+            {
+            	grades='F';
+            }
+            if(pers>=40)
+            {
+            	if(OS<=25 || Compiler<=25 || Organisation<=25 || Humanities<=25 || TOC<=25 || AI<=25|| Architechture<=25|| Graphics<=25 ||COI<=25 || Software<=25)
+		            {
+		            	document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are fail."+"Because your score is less than 25 in any one or more subjects."
+		            }
+				   
+                    else{
+	                document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are pass."
+	                }
+                
+             }
+             else{
+             	document.getElementById('showdata').innerHTML="out of 1000 your total is "+totalgrade+" and percentage is "+pers+"%"+"."+"<br>"+"Your grade is "+grades+"."+"You are fail overall."
+             }
+	   	}
+	   </script>
+	</body>
+</html>
+
+                        
